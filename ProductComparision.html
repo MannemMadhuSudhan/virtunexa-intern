@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Comparison</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
+    }
+
+    .card {
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .card img {
+      height: 200px;
+      object-fit: contain;
+    }
+    
+    img {
+      height: 500px;
+      object-fit: contain;
+    }
+    
+    #homeCarousel {
+      background-color: black;
+    }
+
+    #homeCarousel h5, #homeCarousel p {
+      position: relative;
+      left: 230px; /* Adjust this value to control horizontal positioning */
+    }
+    
+    .star-rating {
+      color: gold;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">CompareZone</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#comparison">Compare Products</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Home Section with Carousel -->
+  <div id="homeCarousel" class="carousel slide my-5" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="https://m.media-amazon.com/images/I/51y3IlpPCjL._SX300_SY300_QL70_FMwebp_.jpg" class="d-block w-70" alt="Oppo Mobile">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Oppo Mobile</h5>
+          <p>High-Quality Camera, Fast Charging, Affordable Price</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="https://m.media-amazon.com/images/I/617l83eY1rL._AC_UL800_FMwebp_QL65_.jpg" class="d-block w-60" alt="Samsung Mobile">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Samsung Mobile</h5>
+          <p>Premium Build, Long Battery Life, High-Performance Processor</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="https://m.media-amazon.com/images/I/615O-NFQKdL._AC_UY545_FMwebp_QL65_.jpg" class="d-block w-60" alt="iPhone">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>iPhone</h5>
+          <p>Top-notch Camera, Smooth Performance, Premium Design</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="https://m.media-amazon.com/images/I/71YWz77koeL._AC_UY545_FMwebp_QL65_.jpg" class="d-block w-60" alt="Vivo Mobile">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Vivo Mobile</h5>
+          <p>Stylish Design, Good Battery Life, Value for Money</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="https://m.media-amazon.com/images/I/61muVCIy-uL._AC_UY545_FMwebp_QL65_.jpg" class="d-block w-60" alt="OnePlus Mobile">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>OnePlus Mobile</h5>
+          <p>Fast Processor, OxygenOS, Quick Charging</p>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#homeCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#homeCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <!-- Main Section -->
+  <div class="container my-5">
+    <h1 class="text-center mb-4">Compare Two Products</h1>
+
+    <!-- Product Selection -->
+    <div class="row">
+      <div class="col-md-6">
+        <label for="product1" class="form-label">Select Product 1:</label>
+        <select id="product1" class="form-select">
+          <option value="">Select a product</option>
+        </select>
+      </div>
+      <div class="col-md-6">
+        <label for="product2" class="form-label">Select Product 2:</label>
+        <select id="product2" class="form-select">
+          <option value="">Select a product</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Comparison Section -->
+    <div id="comparison" class="mt-5">
+      <h2 class="text-center">Comparison Results</h2>
+      <div class="row mt-4">
+        <div class="col-md-6">
+          <div id="product1Details" class="card">
+            <img id="product1Image" src="" class="card-img-top" alt="Product 1 Image">
+            <div class="card-body">
+              <h5 id="product1Title" class="card-title"></h5>
+              <ul id="product1Features" class="list-unstyled"></ul>
+              <p id="product1Price"></p>
+              <p id="product1Review"></p>
+              <p id="product1Rating" class="star-rating"></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div id="product2Details" class="card">
+            <img id="product2Image" src="" class="card-img-top" alt="Product 2 Image">
+            <div class="card-body">
+              <h5 id="product2Title" class="card-title"></h5>
+              <ul id="product2Features" class="list-unstyled"></ul>
+              <p id="product2Price"></p>
+              <p id="product2Review"></p>
+              <p id="product2Rating" class="star-rating"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Product data with INR prices and star ratings
+    const productData = {
+      oppo: {
+        name: "Oppo Mobile",
+        features: ["High-Quality Camera", "Fast Charging", "Affordable Price"],
+        price: "₹24,000", // INR price
+        review: "Great value for the price, excellent camera performance.",
+        rating: 4, // 1 to 5 stars
+        image: "https://m.media-amazon.com/images/I/51y3IlpPCjL._SX300_SY300_QL70_FMwebp_.jpg"
+      },
+      samsung: {
+        name: "Samsung Mobile",
+        features: ["Premium Build", "Long Battery Life", "High-Performance Processor"],
+        price: "₹41,000", // INR price
+        review: "Premium quality with amazing performance, worth the price.",
+        rating: 4.5, // 1 to 5 stars
+        image: "https://m.media-amazon.com/images/I/617l83eY1rL._AC_UL800_FMwebp_QL65_.jpg"
+      },
+      iphone: {
+        name: "iPhone",
+        features: ["Top-notch Camera", "Smooth Performance", "Premium Design"],
+        price: "₹82,000", // INR price
+        review: "Exceptional user experience, but at a premium price.",
+        rating: 5, // 1 to 5 stars
+        image: "https://m.media-amazon.com/images/I/615O-NFQKdL._AC_UY545_FMwebp_QL65_.jpg"
+      },
+      vivo: {
+        name: "Vivo Mobile",
+        features: ["Stylish Design", "Good Battery Life", "Value for Money"],
+        price: "₹20,000", // INR price
+        review: "Good overall performance at an affordable price.",
+        rating: 3.5, // 1 to 5 stars
+        image: "https://m.media-amazon.com/images/I/71YWz77koeL._AC_UY545_FMwebp_QL65_.jpg"
+      },
+      oneplus: {
+        name: "OnePlus Mobile",
+        features: ["Fast Processor", "OxygenOS", "Quick Charging"],
+        price: "₹58,000", // INR price
+        review: "Fast performance and a great display, but lacks a bit in camera quality.",
+        rating: 4, // 1 to 5 stars
+        image: "https://m.media-amazon.com/images/I/61muVCIy-uL._AC_UY545_FMwebp_QL65_.jpg"
+      }
+    };
+
+    // Add options for product selection
+    const product1Select = document.getElementById("product1");
+    const product2Select = document.getElementById("product2");
+
+    Object.keys(productData).forEach(product => {
+      let option1 = document.createElement("option");
+      option1.value = product;
+      option1.textContent = productData[product].name;
+      product1Select.appendChild(option1);
+
+      let option2 = document.createElement("option");
+      option2.value = product;
+      option2.textContent = productData[product].name;
+      product2Select.appendChild(option2);
+    });
+
+    // Function to create star rating
+    function generateStarRating(rating) {
+      let stars = "";
+      for (let i = 0; i < 5; i++) {
+        if (i < rating) {
+          stars += "★"; // Filled star
+        } else {
+          stars += "☆"; // Empty star
+        }
+      }
+      return stars;
+    }
+
+    // Event listener for product selection
+    product1Select.addEventListener("change", updateComparison);
+    product2Select.addEventListener("change", updateComparison);
+
+    function updateComparison() {
+      const product1 = product1Select.value;
+      const product2 = product2Select.value;
+
+      // Display product 1 details
+      if (product1) {
+        document.getElementById("product1Title").textContent = productData[product1].name;
+        document.getElementById("product1Image").src = productData[product1].image;
+        document.getElementById("product1Price").textContent = "Price: " + productData[product1].price;
+        document.getElementById("product1Review").textContent = "Review: " + productData[product1].review;
+        document.getElementById("product1Rating").textContent = generateStarRating(productData[product1].rating);
+        
+        const product1Features = document.getElementById("product1Features");
+        product1Features.innerHTML = "";
+        productData[product1].features.forEach(feature => {
+          let li = document.createElement("li");
+          li.textContent = feature;
+          product1Features.appendChild(li);
+        });
+      }
+
+      // Display product 2 details
+      if (product2) {
+        document.getElementById("product2Title").textContent = productData[product2].name;
+        document.getElementById("product2Image").src = productData[product2].image;
+        document.getElementById("product2Price").textContent = "Price: " + productData[product2].price;
+        document.getElementById("product2Review").textContent = "Review: " + productData[product2].review;
+        document.getElementById("product2Rating").textContent = generateStarRating(productData[product2].rating);
+        
+        const product2Features = document.getElementById("product2Features");
+        product2Features.innerHTML = "";
+        productData[product2].features.forEach(feature => {
+          let li = document.createElement("li");
+          li.textContent = feature;
+          product2Features.appendChild(li);
+        });
+      }
+    }
+  </script>
+</body>
+</html>
